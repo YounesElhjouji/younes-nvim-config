@@ -58,12 +58,6 @@ return {
     },
   },
   {
-    "nvzone/typr",
-    dependencies = "nvzone/volt",
-    opts = {},
-    cmd = { "Typr", "TyprStats" },
-  },
-  {
     "ThePrimeagen/harpoon",
     config = function()
       require("harpoon").setup({
@@ -135,4 +129,3 @@ return {
     opts = {},
   },
 }
-

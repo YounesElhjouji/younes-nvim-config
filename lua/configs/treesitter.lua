@@ -13,6 +13,7 @@ require("nvim-treesitter.configs").setup {
     "hbs",
     "prisma"
   }, -- or other languages you use
+  auto_install = true,
   highlight = {
     enable = true,
   },
