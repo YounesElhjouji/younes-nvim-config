@@ -14,37 +14,43 @@ return {
     lazy = false,
     config = function()
       require("nvim_copy").setup({
-        ignore = { "*node_modules/*", ".git/*", "*-lock*", "*.log", "build/*", "*/configs/*", "*.toml", "*.md", "*__pycache__*", "*venv*" }
+        ignore = {
+          "*node_modules/*",
+          ".git/*",
+          "*-lock*",
+          "*.log",
+          "build/*",
+          "*/configs/*",
+          "*.toml",
+          "*.md",
+          "*__pycache__*",
+          "*venv*",
+        },
       })
     end,
   },
   {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
     config = function()
       require("configs.dashboard")
     end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
-    'echasnovski/mini.nvim',
-    version = '*',
+    "echasnovski/mini.nvim",
+    version = "*",
     lazy = false,
     config = function()
-      require('mini.ai').setup()
-    end
+      require("mini.ai").setup()
+    end,
   },
   {
-    'smoka7/hop.nvim',
+    "smoka7/hop.nvim",
     version = "*",
-    opts = {
-      keys = 'etovxqpdygfblzhckisuran'
-    }
+    opts = { keys = "etovxqpdygfblzhckisuran" },
   },
-  {
-    "tpope/vim-surround",
-    lazy = false,
-  },
+  { "tpope/vim-surround", lazy = false },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -61,9 +67,7 @@ return {
     "ThePrimeagen/harpoon",
     config = function()
       require("harpoon").setup({
-        menu = {
-          width = vim.api.nvim_win_get_width(0) - 20,
-        },
+        menu = { width = vim.api.nvim_win_get_width(0) - 20 },
       })
     end,
   },
@@ -71,16 +75,15 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
+      require("configs.lspconfig")
     end,
   },
   { "nvim-treesitter/nvim-treesitter" },
   {
-    "nvimtools/none-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "css", "scss", "html", "yaml", "markdown" },
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
     config = function()
-      require("configs.null-ls")
+      require("configs.conform")
     end,
   },
   {
@@ -94,7 +97,6 @@ return {
         "ruff",
         "black",
         "isort",
-        "ts_ls",
         "typescript-language-server",
         "tailwindcss-language-server",
       },
@@ -104,9 +106,8 @@ return {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
     dependencies = "nvim-treesitter/nvim-treesitter",
-    lazy = false
+    lazy = false,
   },
-  -- LuaSnip and friendly snippets for snippets
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
@@ -117,15 +118,14 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
-  {
-    "rafamadriz/friendly-snippets",
-  },
+  { "rafamadriz/friendly-snippets" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown" },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim",
+    },
     opts = {},
   },
 }
