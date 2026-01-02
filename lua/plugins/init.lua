@@ -10,10 +10,14 @@ return {
     lazy = false,
   },
   {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
+  {
     "YounesElhjouji/nvim-copy",
     lazy = false,
     config = function()
-      require("nvim_copy").setup({
+      require("nvim_copy").setup {
         ignore = {
           "*node_modules/*",
           ".git/*",
@@ -26,14 +30,14 @@ return {
           "*__pycache__*",
           "*venv*",
         },
-      })
+      }
     end,
   },
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     config = function()
-      require("configs.dashboard")
+      require "configs.dashboard"
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
@@ -55,7 +59,7 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      require("configs.noice")
+      require "configs.noice"
     end,
     dependencies = {
       "hrsh7th/nvim-cmp",
@@ -66,16 +70,16 @@ return {
   {
     "ThePrimeagen/harpoon",
     config = function()
-      require("harpoon").setup({
+      require("harpoon").setup {
         menu = { width = vim.api.nvim_win_get_width(0) - 20 },
-      })
+      }
     end,
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require("configs.lspconfig")
+      require "configs.lspconfig"
     end,
   },
   { "nvim-treesitter/nvim-treesitter" },
@@ -83,7 +87,7 @@ return {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     config = function()
-      require("configs.conform")
+      require "configs.conform"
     end,
   },
   {
@@ -113,7 +117,7 @@ return {
     version = "v2.*",
     build = "make install_jsregexp",
     config = function()
-      local luasnip = require("luasnip")
+      local luasnip = require "luasnip"
       luasnip.filetype_extend("typescriptreact", { "html" })
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
