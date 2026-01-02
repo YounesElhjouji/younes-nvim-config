@@ -27,11 +27,11 @@ vim.lsp.config("*", {
 vim.lsp.config("pyright", {
   settings = {
     python = {
-      pythonPath = "./venv/bin/python",
+      venvPath = ".",
+      venv = "venv",
     },
   },
 })
-
 -- 3) Enable all servers
 vim.lsp.enable(servers)
 

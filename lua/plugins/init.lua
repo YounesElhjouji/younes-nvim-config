@@ -14,7 +14,7 @@ return {
     lazy = false,
     config = function()
       require("nvim_copy").setup({
-        ignore = { "node_modules/*", "*.log", "build/*", "*/configs/*", "*.toml", "*.md", "*__pycache__*", "*venv*" }
+        ignore = { "*node_modules/*", ".git/*", "*-lock*", "*.log", "build/*", "*/configs/*", "*.toml", "*.md", "*__pycache__*", "*venv*" }
       })
     end,
   },
