@@ -23,9 +23,6 @@ map("n", "<leader>cc", ":cclose<CR>", { desc = "Close quickfix list" })
 map("n", "<leader>cq", ":caddbuffer<CR>", { desc = "Add current buffer to quickfix list" })
 map("n", "<leader>cf", ":cfdo %s/<C-r><C-w>//g<CR>", { desc = "Find and replace in quickfix list" })
 
--- My write mappings
-map({ "n", "v" }, "<leader>s", "<cmd> wall <cr>")
-
 -- Paste from the system clipboard
 map("i", "<C-v>", "<C-r>+", { desc = "Paste from system clipboard" })
 
@@ -33,8 +30,6 @@ map("i", "<C-v>", "<C-r>+", { desc = "Paste from system clipboard" })
 map("n", "<leader>qo", "<CMD>CloseOthers<CR>", { desc = "Close all tabs except current" })
 map("n", "<leader>qh", "<CMD>CloseLeft<CR>", { desc = "Close all tabs to the left" })
 map("n", "<leader>ql", "<CMD>CloseRight<CR>", { desc = "Close all tabs to the right" })
-map({ "n" }, "<leader>qq", "<CMD>qa<CR>", { desc = "Close all" })
-map({ "n" }, "<leader>qs", "<CMD>wqa<CR>", { desc = "Save and Close all" })
 map({ "n", "i", "v" }, "<C-q>", "<CMD>qa<CR>", { desc = "Close all" })
 
 -- Vertical nav
@@ -82,6 +77,7 @@ map("n", "<leader>4", function()
 end, { desc = "Go to Harpoon mark 4" })
 
 -- global replace from clipboard
+
 map("n", "<C-t>", "ggVGp:w<CR>", { noremap = true, desc = "Replace page with clipboard content and save file" })
 
 -- Map <leader>cb to copy all visible buffers' content to clipboard
@@ -99,28 +95,6 @@ map("n", "<leader>k", "<CMD>HopWord<CR>", { desc = "Hop: Jump to word" })
 map("n", "<leader>l", function()
   hop.hint_lines()
 end, { desc = "Hop: Jump to line" })
-map("n", "<leader>jj", function()
-  hop.hint_char1()
-end, { desc = "Hop: Jump to character" })
-map("n", "<leader>jk", function()
-  hop.hint_char2()
-end, { desc = "Hop: Jump to character" })
-
--- Toggle function to switch lualine on/off.
-function ToggleLualine()
-  if vim.o.laststatus == 0 then
-    vim.o.laststatus = 2 -- 2: always show statusline
-    print "Statusline enabled"
-  else
-    vim.o.laststatus = 0
-    print "Statusline disabled"
-  end
-end
-
--- Map <leader>ss to toggle the statusline.
-vim.api.nvim_set_keymap("n", "<leader>mm", ":lua ToggleLualine()<CR>", {
-  noremap = true,
-})
 
 -- telescope find files single key
 vim.keymap.set("n", "F", "<Cmd>Telescope find_files<CR>", { desc = "Telescope find files" })
