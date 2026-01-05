@@ -8,6 +8,9 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
+    config = function()
+      require "configs.nvim-tree"
+    end,
   },
   {
     "tpope/vim-fugitive",
