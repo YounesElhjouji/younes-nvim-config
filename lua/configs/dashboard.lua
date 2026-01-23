@@ -1,5 +1,5 @@
 require("dashboard").setup {
-  theme = 'doom',
+  theme = "doom",
   config = {
     header = {
       "                                                      ",
@@ -53,8 +53,8 @@ require("dashboard").setup {
       },
     },
     footer = {
-      "ُهَرَي اًرْيَخ ٍةَّرَذ ل اقْثِم ْلَمْعَي نَمَف"
-      -- "Akhdem a ss7aybi la gha tkhdem!",
+      -- "ُهَرَي اًرْيَخ ٍةَّرَذ ل اقْثِم ْلَمْعَي نَمَف"
+      "Akhdem a ss7aybi la gha tkhdem!",
     },
   },
 }
@@ -62,11 +62,11 @@ require("dashboard").setup {
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
-    vim.api.nvim_set_hl(0, 'DashboardFooter', {
-      fg = '#FFFFFF',
-      bg = '#1E222A',
+    vim.api.nvim_set_hl(0, "DashboardFooter", {
+      fg = "#FFFFFF",
+      bg = "#1E222A",
       bold = true,
-      height = 15
+      height = 15,
     })
   end,
 })
