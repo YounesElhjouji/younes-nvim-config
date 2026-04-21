@@ -55,6 +55,7 @@ return {
   {
     "smoka7/hop.nvim",
     version = "*",
+    cmd = { "HopWord" },
     opts = { keys = "etovxqpdygfblzhckisuran" },
   },
   { "tpope/vim-surround", lazy = false },
@@ -102,8 +103,6 @@ return {
         "css-lsp",
         "prettierd",
         "ruff",
-        "black",
-        "isort",
         "typescript-language-server",
         "tailwindcss-language-server",
       },
@@ -133,6 +132,11 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "echasnovski/mini.nvim",
     },
+    opts = {},
+  },
+  {
+    "Aasim-A/scrollEOF.nvim",
+    lazy = false,
     opts = {},
   },
   {

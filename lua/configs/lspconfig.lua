@@ -26,4 +26,13 @@ vim.lsp.config("pyright", {
   },
 })
 
+vim.lsp.config("ruff", {
+  on_attach = function(client, bufnr)
+    -- Disable ruff's formatting so conform handles it
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    on_attach(client, bufnr)
+  end,
+})
+
 vim.lsp.enable(servers)

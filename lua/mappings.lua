@@ -32,15 +32,17 @@ map("n", "<leader>qh", "<CMD>CloseLeft<CR>", { desc = "Close all tabs to the lef
 map("n", "<leader>ql", "<CMD>CloseRight<CR>", { desc = "Close all tabs to the right" })
 map({ "n", "i", "v" }, "<C-q>", "<CMD>qa<CR>", { desc = "Close all" })
 
--- Vertical nav
+-- Vertical nav (center after jump)
 map("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 map("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+map("n", "n", "nzz", { noremap = true, silent = true, desc = "Next search result (centered)" })
+map("n", "N", "Nzz", { noremap = true, silent = true, desc = "Prev search result (centered)" })
 
 -- Terminal mode mapping
 map("t", "<C-t>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Switch from terminal to normal mode" })
 
 -- Line extremes navigation
-map("n", "G", "Gzz", { noremap = true, silent = true, desc = "Go to end of file and center" })
+map("n", "G", "Gzz", { noremap = true, silent = true, desc = "Go to end of file (centered)" })
 map("n", "H", "^", { noremap = true, silent = true, desc = "Move to the beginning of the line" })
 map("n", "L", "$", { noremap = true, silent = true, desc = "Move to the end of the line" })
 map("v", "H", "^", { noremap = true, silent = true, desc = "Select to the beginning of the line" })
@@ -58,22 +60,23 @@ map(
 map("n", "<leader>dd", ":NoiceDismiss<CR>", { noremap = true, silent = true, desc = "Dismiss all Noice messages" })
 
 -- Harpoon mappings (short)
-local harpoon_mark = require "harpoon.mark"
-local harpoon_ui = require "harpoon.ui"
-
-map("n", "<leader>a", harpoon_mark.add_file, { desc = "Add file to Harpoon" })
-map("n", "<leader>h", harpoon_ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
+map("n", "<leader>a", function()
+  require("harpoon.mark").add_file()
+end, { desc = "Add file to Harpoon" })
+map("n", "<leader>h", function()
+  require("harpoon.ui").toggle_quick_menu()
+end, { desc = "Toggle Harpoon menu" })
 map("n", "<leader>1", function()
-  harpoon_ui.nav_file(1)
+  require("harpoon.ui").nav_file(1)
 end, { desc = "Go to Harpoon mark 1" })
 map("n", "<leader>2", function()
-  harpoon_ui.nav_file(2)
+  require("harpoon.ui").nav_file(2)
 end, { desc = "Go to Harpoon mark 2" })
 map("n", "<leader>3", function()
-  harpoon_ui.nav_file(3)
+  require("harpoon.ui").nav_file(3)
 end, { desc = "Go to Harpoon mark 3" })
 map("n", "<leader>4", function()
-  harpoon_ui.nav_file(4)
+  require("harpoon.ui").nav_file(4)
 end, { desc = "Go to Harpoon mark 4" })
 
 -- global replace from clipboard
@@ -89,11 +92,9 @@ map("n", "<leader>cg", "<CMD>CopyGitFilesToClipboard<CR>", { desc = "Copy all vi
 map("v", "p", '"_dP', { noremap = true, silent = true })
 
 -- Hop keybindings
-local hop = require "hop"
-
 map("n", "<leader>k", "<CMD>HopWord<CR>", { desc = "Hop: Jump to word" })
 map("n", "<leader>l", function()
-  hop.hint_lines()
+  require("hop").hint_lines()
 end, { desc = "Hop: Jump to line" })
 
 -- telescope find files single key
