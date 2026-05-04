@@ -1,4 +1,17 @@
 return {
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = function(_, opts)
+      opts.exclude = opts.exclude or {}
+      opts.exclude.filetypes = opts.exclude.filetypes or {}
+
+      if not vim.tbl_contains(opts.exclude.filetypes, "dashboard") then
+        table.insert(opts.exclude.filetypes, "dashboard")
+      end
+
+      return opts
+    end,
+  },
   -- {
   --   "nvchad/base46",
   --   build = function()
