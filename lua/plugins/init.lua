@@ -143,6 +143,9 @@ return {
     "f-person/auto-dark-mode.nvim",
     lazy = false,
     priority = 1000,
+    enabled = function()
+      return vim.env.USER ~= "root" or vim.env.SUDO_USER ~= nil
+    end,
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
